@@ -1,21 +1,10 @@
-var app= angular.module('myFirstApp',[]);
-app.controller('MyFirstController', function ($scope){
-    $scope.name="";
-    $scope.totalValue = 0;
+var app= angular.module('myApp',[]);
+app.controller('myCtrl', function ($scope, $interval){
+    $scope.firstName = "Mahesh";
+    $scope.lastName = "Dandu";
+    $scope.time=new Date().toLocaleTimeString();
 
-    $scope.displayNumeric = function(){
-        var totalNameValue = calculatNumericForstring($scope.name);
-        $scope.totalValue = totalNameValue;
-    };
-
-    function calcalculatNumericForstring(string){
-
-        var totalStringValue = 0;
-
-        for(var i=0; i<string.length; i++){
-            totalStringValue += string.charCodeAt(i);
-        };
-    };
-
-
+    $interval(function () {
+      $scope.Time = new Date().toLocaleTimeString();
+  }, 1000);
 });

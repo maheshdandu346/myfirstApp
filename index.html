@@ -8,24 +8,54 @@
     <style>
 
         body {
-            background-color: rgb(27, 84, 110);
+            background-color: rgb(0, 255, 255);
             font-size: 1.3em;
+            padding:2.5%;
+             border-style: solid;
+             border-color: green;
           }
         
     </style>
     <title>Angular App</title>
 </head>
-<body ng-app="myFirstApp">
+<body >
 
-<h1>My first AngularJs Application</h1>
+<h1> Welcome to AngularJS Application </h1>
 
-<h2> Name Calculator </h2>
-<div ng-controller="MyFirstController">
- <div>
-      your Name:<input type="text" ng-model="name" ng-keyup="displayNumeric();">
- </div>
- <div>Total Numeric value of person's name is:   {{ totalvalue }}</div>
+<div data-ng-app="myApp" data-ng-init="hight=1;width=5" ng-controller="myCtrl" >
+
+<div >
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+
+</div>
+<br>
+<form  name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+</form>
+
+<br><br>
+<p> Current Time(ISD):</p>
+<h3>{{time}}</h3>
+
+<br><br>
+
+<h2>Area Calculator</h2>
+
+Length: <input type="number" ng-model="hight">
+Width: <input type="number" ng-model="width">
+
+<p><b>Area of Rectangle:</b> {{hight * width}}</p>
+
 </div>
 
 </body>
 </html>
+
+
+
