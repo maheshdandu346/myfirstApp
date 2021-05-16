@@ -6,56 +6,46 @@
     <script src="app.js"></script>
     <script src="app.css"></script>
     <style>
-
+    
         body {
-            background-color: rgb(0, 255, 255);
-            font-size: 1.3em;
-            padding:2.5%;
-             border-style: solid;
-             border-color: green;
+             padding: 45px 60px 75px 100px;
+             background-color: lightblue;
           }
         
+ .message { font-size: 1.3em; font-weight: bold; }
     </style>
     <title>Angular App</title>
 </head>
-<body >
+<body ng-app="LunchCheck"> <!-- AngularJS hook -->
+   <div class="container" 
+        ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
 
-<h1> Welcome to AngularJS Application </h1>
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             ng-model="inputData"
+             class="form-control">        
+         </div>
+         <br>
+         <div class="form-group">
+             <button class="btn btn-default"
 
-<div data-ng-app="myApp" data-ng-init="hight=1;width=5" ng-controller="myCtrl" >
-
-<div >
-
-First Name: <input type="text" ng-model="firstName"><br>
-Last Name: <input type="text" ng-model="lastName"><br>
-<br>
-Full Name: {{firstName + " " + lastName}}
-
-</div>
-<br>
-<form  name="myForm">
-    Email:
-    <input type="email" name="myAddress" ng-model="text">
-    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
-</form>
-
-<br><br>
-<p> Current Time(ISD):</p>
-<h3>{{time}}</h3>
-
-<br><br>
-
-<h2>Area Calculator</h2>
-
-Length: <input type="number" ng-model="hight">
-Width: <input type="number" ng-model="width">
-
-<p><b>Area of Rectangle:</b> {{hight * width}}</p>
-
-</div>
+             ng-click="getFood();">Check If Too Much</button>
+         </div>
+         <div class="form-group message"
+         no-model = "myMessage">
+         		<!-- Your message can go here. -->
+         		{{myMessage}}
+         </div>
+   </div>
 
 </body>
 </html>
+
+
+
+
 
 
 
